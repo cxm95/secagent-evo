@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智能体进化平台</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="page-header">
+    <h1>智能体进化平台 · 架构总览</h1>
+    <p class="subtitle">SecAgent Evolution Platform</p>
+  </header>
+
+  <main class="main-layout">
+    <!-- 左侧横条区 -->
+    <aside class="sidebar sidebar-left">
+      <div class="sidebar-top">
+        <a href="#" class="bar-card" data-group="ext-L3" target="_blank">
+          <div class="bar-accent"></div>
+          <div class="bar-content">
+            <span class="bar-title">技能库</span>
+            <span class="bar-desc">待补充</span>
+          </div>
+          <span class="bar-arrow">→</span>
+        </a>
+        <a href="#" class="bar-card" data-group="ext-L2" target="_blank">
+          <div class="bar-accent"></div>
+          <div class="bar-content">
+            <span class="bar-title">智能体工作流</span>
+            <span class="bar-desc">待补充</span>
+          </div>
+          <span class="bar-arrow">→</span>
+        </a>
+        <a href="#" class="bar-card" data-group="ext-L4" target="_blank">
+          <div class="bar-accent"></div>
+          <div class="bar-content">
+            <span class="bar-title">运行时环境</span>
+            <span class="bar-desc">待补充</span>
+          </div>
+          <span class="bar-arrow">→</span>
+        </a>
+      </div>
+      <div class="sidebar-bottom">
+        <a href="#" class="bar-card bar-card--red" data-group="ext-researcher" target="_blank">
+          <div class="bar-accent"></div>
+          <div class="bar-content">
+            <span class="bar-title">安全研究员</span>
+            <span class="bar-desc">待补充</span>
+          </div>
+          <span class="bar-arrow">→</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- 中央架构图 -->
+    <section class="diagram-area">
+      <svg class="connections-svg" id="connectionsSvg"></svg>
+
+      <div class="diagram-grid">
+        <!-- 外部区 -->
+        <div class="zone zone-external">
+          <div class="zone-header" data-group="ext-title">
+            <h2>外部区</h2>
+            <span class="zone-subtitle">外部能力摸高</span>
+          </div>
+          <div class="zone-layers">
+            <div class="layer-box" data-group="ext-L1" data-layer="L1">
+              <div class="layer-label">L1 应用层</div>
+              <div class="layer-desc">无人值守的<em>测试</em>任务编排与调度，任务管理等</div>
+            </div>
+            <div class="layer-box" data-group="ext-L2" data-layer="L2">
+              <div class="layer-label">L2 智能体/工作流层</div>
+              <div class="layer-desc">执行具体漏洞挖掘任务的智能体与工作流</div>
+            </div>
+            <div class="layer-box" data-group="ext-L3" data-layer="L3">
+              <div class="layer-label">L3 技能层</div>
+              <div class="layer-desc">可复用的漏洞挖掘技能模块，包含<em>开源</em>漏洞模式、<em>开源</em>工具等</div>
+            </div>
+            <div class="layer-box" data-group="ext-L4" data-layer="L4">
+              <div class="layer-label">L4 运行时层</div>
+              <div class="layer-desc">智能体Harness，任务执行环境、工具链、评测基础设施</div>
+            </div>
+            <div class="layer-box" data-group="ext-L5" data-layer="L5">
+              <div class="layer-label">L5 模型层（教师模型）</div>
+              <div class="layer-desc">商用教师模型，可使用商用高阶模型（GPT、Claude等）</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 迁移箭头列 -->
+        <div class="migration-column">
+          <div class="migration-arrow" data-migrate="L1">
+            <span class="arrow-label">策略迁移</span>
+            <span class="arrow-icon">→</span>
+          </div>
+          <div class="migration-arrow" data-migrate="L2">
+            <span class="arrow-label">智能体迁移</span>
+            <span class="arrow-icon">→</span>
+          </div>
+          <div class="migration-arrow" data-migrate="L3">
+            <span class="arrow-label">技能迁移</span>
+            <span class="arrow-icon">→</span>
+          </div>
+          <div class="migration-arrow" data-migrate="L4">
+            <span class="arrow-label">配置迁移</span>
+            <span class="arrow-icon">→</span>
+          </div>
+          <div class="migration-arrow" data-migrate="L5">
+            <span class="arrow-label">OPD蒸馏</span>
+            <span class="arrow-icon">→</span>
+          </div>
+        </div>
+
+        <!-- 内部区 -->
+        <div class="zone zone-internal">
+          <div class="zone-header" data-group="int-title">
+            <h2>内部区</h2>
+            <span class="zone-subtitle">机密信息，能力内迁</span>
+          </div>
+          <div class="zone-layers">
+            <div class="layer-box" data-group="int-L1" data-layer="L1">
+              <div class="layer-label">L1 应用层</div>
+              <div class="layer-desc">无人值守的<em>内部业务需求</em>编排与调度，任务管理等</div>
+            </div>
+            <div class="layer-box" data-group="int-L2" data-layer="L2">
+              <div class="layer-label">L2 智能体/工作流层</div>
+              <div class="layer-desc">执行具体漏洞挖掘任务的智能体与工作流</div>
+            </div>
+            <div class="layer-box" data-group="int-L3" data-layer="L3">
+              <div class="layer-label">L3 技能层</div>
+              <div class="layer-desc">可复用的漏洞挖掘技能模块，包含<em>内部</em>漏洞模式、<em>内部</em>工具等</div>
+            </div>
+            <div class="layer-box" data-group="int-L4" data-layer="L4">
+              <div class="layer-label">L4 运行时层</div>
+              <div class="layer-desc">智能体Harness，<em>真实测试环境</em>、工具链、评测基础设施</div>
+            </div>
+            <div class="layer-box" data-group="int-L5" data-layer="L5">
+              <div class="layer-label">L5 模型层（学生模型）</div>
+              <div class="layer-desc">仅使用<em>内部部署的开源模型</em></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 安全研究员 - 左（外部区） -->
+      <div class="researcher researcher-left" data-group="ext-researcher">
+        <div class="researcher-title">安全研究员</div>
+        <div class="researcher-desc">人工反馈与专家经验注入</div>
+        <div class="researcher-actions">
+          <span class="action-tag" data-action-target="ext-title">环境反馈上行</span>
+          <span class="action-tag" data-action-target="ext-L1">设计规划</span>
+          <span class="action-tag" data-action-target="ext-L2">经验注入</span>
+          <span class="action-tag" data-action-target="ext-L3">创建与优化技能</span>
+          <span class="action-tag" data-action-target="ext-L4">运行时修正</span>
+          <span class="action-tag" data-action-target="ext-L5">模型反馈上行</span>
+        </div>
+      </div>
+
+      <!-- 安全研究员 - 右（内部区） -->
+      <div class="researcher researcher-right" data-group="int-researcher">
+        <div class="researcher-title">安全研究员</div>
+        <div class="researcher-desc">人工反馈与专家经验注入</div>
+        <div class="researcher-actions">
+          <span class="action-tag" data-action-target="int-title">环境反馈上行</span>
+          <span class="action-tag" data-action-target="int-L1">设计规划</span>
+          <span class="action-tag" data-action-target="int-L2">经验注入</span>
+          <span class="action-tag" data-action-target="int-L3">创建与优化技能</span>
+          <span class="action-tag" data-action-target="int-L4">运行时修正</span>
+          <span class="action-tag" data-action-target="int-L5">数据回流</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 右侧横条区（预留） -->
+    <aside class="sidebar sidebar-right">
+      <div class="sidebar-top">
+        <!-- 预留横条位置 -->
+      </div>
+      <div class="sidebar-bottom">
+        <!-- 预留横条位置 -->
+      </div>
+    </aside>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
